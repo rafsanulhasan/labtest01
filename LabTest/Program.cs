@@ -6,11 +6,12 @@ namespace LabTest
 	{
 		private static int CalculateNumberOfPulses(
 			DateTime startDate,
-			DateTime endDate
+			DateTime endDate,
+			int secondPerPulse
 		)
 		{
 			var duration = endDate - startDate;
-			return int.Parse(Math.Ceiling(duration.TotalSeconds / 20).ToString());
+			return int.Parse(Math.Ceiling(duration.TotalSeconds / secondPerPulse).ToString());
 		}
 		private static float CalculateRate(
 				DateTime startTime,
@@ -25,7 +26,7 @@ namespace LabTest
 			DateTime endDate
 		)
 		{
-			var duration = CalculateNumberOfPulses(startDate, endDate);
+			var duration = CalculateNumberOfPulses(startDate, endDate, 20);
 			var rate = CalculateRate(startDate, endDate);
 			return duration * rate;
 		}
