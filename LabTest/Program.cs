@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace LabTest
 {
@@ -17,7 +16,7 @@ namespace LabTest
 				DateTime startTime,
 				DateTime endTime
 			)
-				=> startTime.Hour >= 9 && endTime.Hour < 11
+				=> startTime.Hour >= 9 && endTime.Hour < 12
 				? 0.30f
 				: 0.20f;
 
@@ -39,9 +38,6 @@ namespace LabTest
 			Console.Write("\nEnd Date: ");
 			var endDateString = Console.ReadLine();
 
-
-			startDateString = startDateString.Trim();
-			endDateString = endDateString.Trim();
 			if (!string.IsNullOrEmpty(startDateString) &&
 			    !string.IsNullOrEmpty(endDateString) &&
 			    DateTime.TryParse(startDateString.Trim(), out var startDate) &&
